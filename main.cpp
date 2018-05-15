@@ -8,9 +8,9 @@
 
 int main(int argc, char *argv[]) {
     using namespace std;
-    string nodes_file = "..\\nodes.csv";
-    string polygons_file = "..\\polygons.csv";
-    string points_file = "..\\cpp_points_data.csv";
+    string nodes_file = "../nodes.csv";
+    string polygons_file = "../polygons.csv";
+    string points_file = "../cpp_points_data.csv";
 
     if(argc == 1){
         cerr << "Using default input files" << endl;
