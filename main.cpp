@@ -22,9 +22,9 @@ int main(int argc, char *argv[]) {
         points_file = string(argv[3]);
     }
 
-    vector<Vertex> vertices = readVertices("..\\nodes.csv", true);
-    vector<Polygon> polygons = readPolygons("..\\polygons.csv", vertices, false);
-    vector<Vertex> points = readVertices("..\\cpp_points_data.csv", true);
+    vector<Vertex> vertices = readVertices(nodes_file, true);
+    vector<Polygon> polygons = readPolygons(polygons_file, vertices, false);
+    vector<Vertex> points = readVertices(points_file, true);
 
     PointsContainer pc(points);
 
