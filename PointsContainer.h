@@ -55,10 +55,10 @@ class PointsContainer {
 
 
 private:
-    std::map<index_t,DataPoint> coordinates;
+    std::map<index_t,DataPoint> tags;
 
 public:
-    explicit PointsContainer(std::vector<Vertex> &vertices) : coordinates(){
+    explicit PointsContainer(std::vector<Vertex> &vertices) : tags(){
         add(vertices);
     }
 
