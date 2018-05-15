@@ -1,5 +1,5 @@
 //
-// Created by HyperWorks on 2018-05-12.
+// Created by PiotrKsiazek on 2018-05-12.
 //
 
 #include <iostream>
@@ -39,27 +39,30 @@ void PointsContainer::add(Vertex a) {
 }
 
 void PointsContainer::test(std::vector<Polygon> &polygons) {
-    for (auto &coordinate : coordinates) {
-        for(auto &point : coordinate.second.points){
-            for(auto &polygon : polygons){
-                bool res = polygon.contains(coordinate.first, point);
+    int best_index = -1;
+    int best_count = -1;
+    std::vector<index_t> in_none;
+
+
+    for (auto &coordinate : coordinates) { //for each tag
+        for(auto &point : coordinate.second.points){ //for each position
+            for(auto &polygon : polygons){ //for each polygon
+                bool res = polygon.contains(coordinate.first, point); //test if the point is included in the polygon
                 if(res){
-                    coordinate.second.incCount();
+                    coordinate.second.incCount(); //increment the number of times the tag was present in polygons
                 }
             }
         }
     }
 
-    int best_index = -1;
-    int best_count = -1;
-    std::vector<index_t> in_none;
-    for (auto &coordinate : coordinates) {
-        if(coordinate.second.getCount() > best_count){
+
+    for (auto &coordinate : coordinates) { //for each tag
+        if(coordinate.second.getCount() > best_count){ //find most often tag
             best_count = coordinate.second.getCount();
             best_index = coordinate.first;
         }
         if(coordinate.second.getCount() == 0){
-            in_none.push_back(coordinate.first);
+            in_none.push_back(coordinate.first); //remember the tags that weren't included in any polygon
         }
     }
 
