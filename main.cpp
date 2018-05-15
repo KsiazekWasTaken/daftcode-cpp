@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 
     if(argc == 1){
         cerr << "Using default input files" << endl;
-    } else if (argc != 3) {
+    } else if (argc != 4) {
         cerr << "Usage: " << argv[0] << " nodes_file polygons_file points_file" << endl;
     } else {
         nodes_file = string(argv[1]);
